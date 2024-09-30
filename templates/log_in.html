@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/log_&_sign.css') }}">
+</head>
+<body>
+
+    <div class="login-form">
+        <h2 class="title">Welcome back</h2>   
+
+        <form action="/authentication" method="POST">
+            <div class="input-group">
+                <input type ="email" id="email" name="email" placeholder=" " required>
+                <label for  ="email">Email Address</label>
+            </div>
+            <div class="input-group">
+                <input type ="password" id="password" name="password" placeholder=" " required>
+                <label for  ="password">Enter Password</label>
+            </div>
+            <button type="submit" class="continue-btn">Continue</button>
+        </form>
+    </div>
+
+</body>
+</html>

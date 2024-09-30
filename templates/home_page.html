@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vampaxx-log in or Sign in</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home_page.css') }}">
+</head>
+<body>
+    <div class="login-container"></div>
+        <div class="login-box">
+            <!-- Welcome Text Section -->
+            <h2 class="welcome-text">Welcome back</h2>
+            <p class="info-text">Log in or sign up to get into VampaXX universe.</p>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn login-btn"   onclick = "window.location.href='/login';">Log In</button>
+                <button class="btn signup-btn"  onclick = "window.location.href='/signup';">Sign Up</button>
+            </div>
+
+            <!-- Forgot Password Link -->
+            <p class="forgot-password">
+                <a href="/forgot_password">Forgot password?</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+

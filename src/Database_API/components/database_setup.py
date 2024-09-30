@@ -27,3 +27,12 @@ class ConfigurationManager:
         return data_base_config
     
 
+
+if __name__ == "__main__":
+    manager = ConfigurationManager()
+    database = manager.get_database_config()
+
+
+
+
+
