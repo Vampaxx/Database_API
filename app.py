@@ -174,16 +174,6 @@ def reset_password():
         return jsonify({"message": "Password updated successfully."}), 200
 
 
-@app.route('/delete_item/<int:email_id>', methods=['DELETE'])
-def delete_item(email_id):
-    item = db.session.execute(text("SELECT * FROM sign_up WHERE email=:email"), {'email': email}).fetchone()
-    if item:
-        db.session.delete(item)
-        db.session.commit()
-        return jsonify({'message': f'Item {item_id} deleted successfully.'}), 200
-    else:
-        return jsonify({'message': 'Item not found.'}), 404
-
 
 
     
