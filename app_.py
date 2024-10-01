@@ -58,12 +58,13 @@ def login():
 @app.route('/sign_up', methods=['GET'])
 @jwt_required()
 def get_items():
-    cursor = mysql.connection.cursor()
+    cursor  = mysql.connection.cursor()
     cursor.execute("SELECT * FROM sign_up")
-    items = cursor.fetchall()
+    items   = cursor.fetchall()
     cursor.close()
     
     return jsonify(items), 200          # OK 
+
 
 # GET a specific account
 @app.route('/sign_up/<string:email>', methods=['GET'])
@@ -75,11 +76,11 @@ def get_email(email):
     cursor.close()
 
     if email is None:
-        return jsonify({'message': 'account not found'}), 404
-    return jsonify(email), 200
+        return jsonify({'message': 'account not found'}), 404   # Not Found 
+    return jsonify(email), 200                                  # OK
 
 
-# POST a new item
+# POST a new account 
 @app.route('/sign_up', methods=['POST'])
 @jwt_required()
 def create_item():
@@ -89,7 +90,7 @@ def create_item():
     mysql.connection.commit()
     cursor.close()
     
-    return jsonify({"msg": "Account created"}), 201
+    return jsonify({"msg": "Account created"}), 201         # created 
 
 
 # PUT to update an account
@@ -102,8 +103,9 @@ def update_item(account_id):
                    (updated_data['email'], updated_data['password'], account_id))
     mysql.connection.commit()
     cursor.close()
-    
-    return jsonify({"msg": "Item updated"}), 200
+    return jsonify({"msg": "Account updated"}), 200         # Ok 
+
+
 
 # DELETE an account
 @app.route('/sign_up/<int:account_id>', methods=['DELETE'])
@@ -114,7 +116,7 @@ def delete_item(account_id):
     mysql.connection.commit()
     cursor.close()
     
-    return jsonify({"msg": "Item deleted"}), 204
+    return jsonify({"msg": "Account deleted"}), 204         # NO Content 
 
 
 
