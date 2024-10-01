@@ -173,6 +173,27 @@ def reset_password():
 
         return jsonify({"message": "Password updated successfully."}), 200
 
+"""
+@app.route('/delete_item/<email_id>', methods=['DELETE'])
+def delete_item(email_id):
+    result = db.session.execute(text("DELETE FROM sign_up WHERE email=:email"), {'email': email_id})
+    print(result)
+    db.session.commit()  # Commit the changes after executing the delete statement
+
+    if result.rowcount > 0:  # Check if any row was deleted
+        return jsonify({'message': f'Item with email {email_id} deleted successfully.'}), 200
+    else:
+        return jsonify({'message': 'Item not found.'}), 404
+"""    
+@app.route('/delete_item/<email_id>', methods=['DELETE'])
+def delete_item(email_id):
+    result = db.session.execute(text("DELETE FROM sign_up WHERE email=:email"), {'email': email_id})
+    db.session.commit()  # Commit the changes after executing the delete statement
+
+    if result.rowcount > 0:  # Check if any row was deleted
+        return jsonify({'message': f'Item with email {email_id} deleted successfully.'}), 200
+    else:
+        return jsonify({'message': 'Item not found.'}), 404
 
 
 
